@@ -3,193 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CN-IASI 2027 | Conférence Nationale IA & Systèmes Industriels</title>
+    <title>CN-IASI 2027 - Conférence Nationale sur l'IA et les Systèmes Industriels</title>
     <style>
-        /* CSS RESET & VARIABLES */
+        /* BASE & PALETTE DE COULEURS MODERNE */
         :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --text-dark: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
+            --primary: #0f172a;       /* Bleu nuit profond */
+            --accent: #1e40af;        /* Bleu académique */
+            --highlight: #2563eb;     /* Bleu vif pour boutons/interactivité */
+            --bg-body: #f8fafc;       /* Gris très clair */
+            --bg-card: #ffffff;       /* Blanc */
+            --text-main: #334155;     /* Anthracite */
+            --text-muted: #64748b;    /* Gris moyen */
+            --border: #e2e8f0;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        html { scroll-behavior: smooth; }
-        body { color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-        /* NAVIGATION */
+        /* HEADER & ENTÊTE */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { color: var(--white); font-weight: 700; font-size: 1.3rem; text-decoration: none; }
-        .logo span { color: var(--accent); }
-        nav a { color: var(--white); text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
-        .btn-nav { background: var(--accent); padding: 0.5rem 1rem; border-radius: 5px; font-weight: 600; }
-        .btn-nav:hover { background: var(--accent-hover); color: var(--white); }
-
-        /* HERO SECTION */
-        .hero {
-            height: 90vh;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2.5rem 2rem;
             text-align: center;
-            color: var(--white);
-            padding: 0 1rem;
-            margin-top: 60px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; max-width: 900px; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin-bottom: 2rem; }
-        .hero-meta { font-size: 1.1rem; font-weight: 600; margin-bottom: 2rem; background: rgba(255,255,255,0.1); padding: 0.8rem 1.5rem; border-radius: 50px; }
 
-        /* SECTIONS STYLES */
-        section { padding: 5rem 10%; }
-        .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 3rem; position: relative; }
-        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+        .header-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
 
-        /* THÉMATIQUES GRID */
-        .grid-axes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .card-axis { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
-        .card-axis h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
 
-        /* CALENDRIER TABLE */
-        .dates-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .dates-table th, .dates-table td { padding: 1.2rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        .dates-table th { background: var(--primary); color: var(--white); }
-        .dates-table tr:hover { background-color: #f1f5f9; }
+        .header-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+        }
 
-        /* FOOTER */
-        footer { background: var(--primary); color: var(--white); text-align: center; padding: 2rem; font-size: 0.9rem; }
+        /* LAYOUT PRINCIPAL (MENU + CONTENU) */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
 
-        /* RESPONSIVE */
+        /* MENU DE NAVIGATION */
+        nav {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            height: fit-content;
+        }
+
+        nav h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            display: block;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #eff6ff;
+            color: var(--highlight);
+            transform: translateX(3px);
+        }
+
+        /* BANNIÈRE DE SUPPORT / CONTACT */
+        .support-box {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .support-box a {
+            color: var(--highlight);
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+
+        /* ZONE DE CONTENU PRINCIPAL */
+        main {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        h2.title-block {
+            color: var(--primary);
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* LISTE DES OBJECTIFS & THÈMES */
+        .grid-themes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .theme-card {
+            background: #f1f5f9;
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--highlight);
+        }
+
+        .theme-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ENCADRÉ D'APPEL À L'ACTION (CTA) */
+        .cta-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--highlight);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+        }
+
+        /* PIED DE PAGE */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            background: white;
+        }
+
+        /* RESPONSIVE DESIGN (POUR MOBILES & TABLETTES) */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            nav { display: none; } /* Simplifié pour démo mobile */
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 1.5rem 1rem;
+            }
+            .header-title {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ENTÊTE DE LA CONFÉRENCE -->
     <header>
-        <a href="#" class="logo">CN-IASI <span>2027</span></a>
-        <nav>
-            <a href="#presentation">Présentation</a>
-            <a href="#axes">Thématiques</a>
-            <a href="#calendrier">Calendrier</a>
-            <a href="#soumission" class="btn-nav">Soumettre un Article</a>
-        </nav>
+        <div class="header-title">CN-IASI 2027</div>
+        <div class="header-subtitle">Conférence Nationale sur l'IA et les Systèmes Industriels : De la Théorie à l'Application</div>
+        <div class="header-badge">📍 École Nationale des Sciences Appliquées | 📅 23-25 Juin 2027</div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-meta">📅 15-16 Mai 2027 | 📍 Palais des Congrès, Paris</div>
-        <h1>Conférence Nationale sur l'IA et les Systèmes Industriels</h1>
-        <p>L'Intelligence Artificielle au cœur de la transformation industrielle : défis, innovations et perspectives.</p>
-        <a href="#soumission" style="background: var(--accent); color: white; padding: 0.8rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold;">Appel à Communications (CFP)</a>
-    </section>
+    <!-- STRUCTURE PRINCIPALE -->
+    <div class="container">
 
-    <!-- PRESENTATION -->
-    <section id="presentation">
-        <h2 class="section-title">À Propos de la Conférence</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-light);">
-            La <strong>CN-IASI 2027</strong> constitue un cadre privilégié d'échanges scientifiques et technologiques entre chercheurs, enseignants-chercheurs, doctorants et acteurs industriels autour des enjeux de l'Industrie 4.0 et 5.0.
-        </p>
-    </section>
+        <!-- MENU LATÉRAL DE NAVIGATION -->
+        <nav>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Comité d'Honneur</a></li>
+                <li><a href="#">Comité d'Organisation</a></li>
+                <li><a href="#">Comité Scientifique</a></li>
+                <li><a href="#">Thèmes & Axes</a></li>
+                <li><a href="#">Conférenciers Invités</a></li>
+                <li><a href="#">Dates Importantes</a></li>
+                <li><a href="#">Soumissions</a></li>
+                <li><a href="#">Frais & Inscription</a></li>
+                <li><a href="#">Lieu de la Conférence</a></li>
+                <li><a href="#">Programme</a></li>
+            </ul>
 
-    <!-- THÉMATIQUES -->
-    <section id="axes" style="background: #edf2f7;">
-        <h2 class="section-title">Axes Thématiques</h2>
-        <div class="grid-axes">
-            <div class="card-axis">
-                <h3>🛠️ 1. Maintenance & Diagnostic</h3>
-                <p>Maintenance prédictive, détection de défauts (FDD) et estimation de la durée de vie restante (RUL) par Machine/Deep Learning.</p>
+            <div class="support-box">
+                <h3>Contact & Support</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Pour toute question :</p>
+                <a href="mailto:cn-iasi2027@sciencesconf.org">cn-iasi2027@sciencesconf.org</a>
             </div>
-            <div class="card-axis">
-                <h3>🔄 2. Jumeaux Numériques</h3>
-                <p>Modélisation hybride (physique + données), simulation en temps réel et optimisation des lignes de production.</p>
-            </div>
-            <div class="card-axis">
-                <h3>👁️ 3. Vision & Contrôle Qualité</h3>
-                <p>Inspection automatique sur chaîne, détection d'anomalies par vision artificielle et cobotique avancée.</p>
-            </div>
-            <div class="card-axis">
-                <h3>🚚 4. Supply Chain & Logistique</h3>
-                <p>Planification intelligente des flux, prévision de la demande et gestion autonome des stocks.</p>
-            </div>
-            <div class="card-axis">
-                <h3>🔒 5. Cybersécurité & Sobriété (OT/ICS)</h3>
-                <p>Sécurité des réseaux SCADA/PLC assistée par l'IA, décarbonation des usines et explicabilité (XAI).</p>
-            </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- CALENDRIER -->
-    <section id="calendrier">
-        <h2 class="section-title">Calendrier & Dates Clés</h2>
-        <table class="dates-table" style="max-width: 800px; margin: 0 auto;">
-            <thead>
-                <tr>
-                    <th>Étape</th>
-                    <th>Date Limite</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Ouverture des soumissions</td>
-                    <td><strong>15 Novembre 2026</strong></td>
-                </tr>
-                <tr>
-                    <td>Date limite de soumission des articles</td>
-                    <td><strong>15 Février 2027</strong></td>
-                </tr>
-                <tr>
-                    <td>Notification aux auteurs</td>
-                    <td><strong>30 Mars 2027</strong></td>
-                </tr>
-                <tr>
-                    <td>Soumission des versions finales (Camera-Ready)</td>
-                    <td><strong>15 Avril 2027</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Dates de la Conférence</strong></td>
-                    <td><strong style="color: var(--accent);">15 - 16 Mai 2027</strong></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        <!-- CONTENU DE LA PAGE D'ACCUEIL -->
+        <main>
+            <section class="content-block">
+                <h2 class="title-block">Bienvenue</h2>
+                <p>
+                    Bienvenue sur le site officiel de la <strong>Conférence Nationale sur l'Intelligence Artificielle et les Systèmes Industriels (CN-IASI 2027)</strong>. 
+                    L'événement se tiendra du <strong>23 au 25 juin 2027</strong> à l'<strong>École Nationale des Sciences Appliquées</strong>.
+                </p>
+            </section>
 
-    <!-- SOUMISSION CTA -->
-    <section id="soumission" style="background: var(--primary); color: white; text-align: center;">
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Prêt à soumettre vos travaux ?</h2>
-        <p style="margin-bottom: 2rem; color: #94a3b8;">Les articles (4 à 6 pages) doivent respecter les formats officiels LaTeX ou Word.</p>
-        <a href="#" style="background: var(--accent); color: white; padding: 0.8rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-right: 10rem;">Soumettre via Sciencesconf / EasyChair</a>
-    </section>
+            <section class="content-block">
+                <h2 class="title-block">Objectifs de la Conférence</h2>
+                <p>
+                    L'objectif majeur de la <strong>CN-IASI 2027</strong> est de réunir des enseignants-chercheurs, des doctorants, des experts industriels et des ingénieurs pour explorer l'interaction dynamique entre l'<strong>Intelligence Artificielle (IA)</strong> et les <strong>Systèmes Industriels 4.0/5.0</strong>.
+                </p>
+                <p>
+                    Cet événement vise à présenter les avancées méthodologiques théoriques de l'IA tout en mettant en lumière ses applications concrètes pour résoudre les défis complexes du monde industriel (maintenance, optimisation des chaînes de production, vision par ordinateur, cybersécurité des réseaux OT).
+                </p>
+            </section>
 
-    <!-- FOOTER -->
+            <!-- CARTES DES THÉMATIQUES PRINCIPALES -->
+            <section class="content-block">
+                <h2 class="title-block">Axes Thématiques</h2>
+                <div class="grid-themes">
+                    <div class="theme-card">
+                        <h4>Maintenance Intelligente</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Diagnostic, détection de défauts et prédiction de durée de vie restante (RUL).</p>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Jumeaux Numériques</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Modélisation hybride, simulation temps réel et optimisation des procédés.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Vision & Contrôle Qualité</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Inspection automatique sur chaîne de production et cobotique industrielle.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Cybersécurité & Sobriété</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Sécurité des réseaux SCADA/ICS et efficacité énergétique de l'IA.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ENCADRÉ SOUMISSION / APPEL À COMMUNICATIONS -->
+            <div class="cta-box">
+                <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Appel à Communications Ouvert</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 0;">Vous souhaitez présenter vos travaux de recherche ou un retour d'expérience industriel ?</p>
+                <a href="#" class="cta-button">Soumettre un Résumé / Article</a>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- PIED DE PAGE -->
     <footer>
-        <p>© 2027 Conférence Nationale sur l'IA et les Systèmes Industriels (CN-IASI). Tous droits réservés.</p>
+        <p>© 2027 CN-IASI - Conférence Nationale sur l'IA et les Systèmes Industriels.</p>
+        <p style="margin-top: 0.3rem; font-size: 0.75rem;">Propulsé par la plateforme Sciencesconf.org / GitHub Pages</p>
     </footer>
 
 </body>
