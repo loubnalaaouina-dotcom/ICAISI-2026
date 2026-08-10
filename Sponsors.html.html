@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsors & Partenaires - ICIASI 2026</title>
+    <style>
+        /* CHARTE GRAPHIQUE UNIFIÉE */
+        :root {
+            --primary: #0f172a;       /* Bleu nuit profond */
+            --accent: #1e40af;        /* Bleu académique */
+            --highlight: #2563eb;     /* Bleu vif */
+            --bg-body: #f8fafc;       /* Gris très clair */
+            --bg-card: #ffffff;       /* Blanc */
+            --text-main: #334155;     /* Anthracite */
+            --text-muted: #64748b;    /* Gris moyen */
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            height: fit-content;
+        }
+
+        nav h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            display: block;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #eff6ff;
+            color: var(--highlight);
+            transform: translateX(3px);
+        }
+
+        .support-box {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .support-box a {
+            color: var(--highlight);
+            word-break: break-all;
+            font-size: 0.85rem;
+        }
+
+        /* CONTENU PRINCIPAL */
+        main {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        h2.title-block {
+            color: var(--primary);
+            font-size: 1.4rem;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* LISTE DES SPONSORS */
+        .sponsors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .sponsor-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .sponsor-logo {
+            width: 180px;
+            min-width: 180px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem;
+        }
+
+        .sponsor-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .sponsor-info {
+            flex-grow: 1;
+        }
+
+        .sponsor-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .sponsor-name a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .sponsor-name a:hover {
+            color: var(--highlight);
+        }
+
+        .sponsor-desc {
+            font-size: 0.92rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sponsor-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .sponsor-logo {
+                width: 100%;
+            }
+            header {
+                padding: 1.5rem 1rem;
+            }
+            .header-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <div class="header-title">ICIASI 2026</div>
+        <div class="header-subtitle">International Conference on Artificial Intelligence and Industrial Systems</div>
+        <div class="header-badge">📅 24 - 25 Décembre 2026 | 📍 École Nationale des Sciences Appliquées</div>
+    </header>
+
+    <div class="container">
+
+        <!-- MENU NAVIGATION -->
+        <nav>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#">Comité d'Honneur</a></li>
+                <li><a href="#">Comité d'Organisation</a></li>
+                <li><a href="comite_scientifique.html">Comité Scientifique</a></li>
+                <li><a href="sponsors.html" class="active">Sponsors & Partenaires</a></li>
+                <li><a href="#">Thèmes & Axes</a></li>
+                <li><a href="#">Conférenciers Invités</a></li>
+                <li><a href="#">Dates Importantes</a></li>
+                <li><a href="#">Soumission d'Article</a></li>
+                <li><a href="#">Publications & Actes</a></li>
+                <li><a href="#">Frais d'Inscription</a></li>
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Lieu de la Conférence</a></li>
+                <li><a href="#">Programme</a></li>
+            </ul>
+
+            <div class="support-box">
+                <h3>Support & Contact</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Pour toute information :</p>
+                <a href="mailto:iciasi2026@gmail.com">iciasi2026@gmail.com</a>
+            </div>
+        </nav>
+
+        <!-- CONTENU -->
+        <main>
+            <h2 class="title-block">Sponsors & Partenaires</h2>
+            <p style="margin-bottom: 1.5rem;">Nous remercions nos partenaires institutionnels et scientifiques pour leur soutien à l'organisation de la conférence ICIASI 2026 :</p>
+
+            <div class="sponsors-list">
+
+                <!-- Alkhawarizmi -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="https://icaim25.sciencesconf.org/data/sponsors/khawarizmi.png" alt="Projet Alkhawarizmi">
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">Projet Alkhawarizmi</div>
+                        <div class="sponsor-desc">Soutenu par le projet "Smart Medina Alkhawarizmi 2020/28".</div>
+                    </div>
+                </div>
+
+                <!-- LSATE -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="https://icaim25.sciencesconf.org/data/sponsors/Logo_Labo.JPG" alt="Laboratoire LSATE">
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">Laboratoire LSATE</div>
+                        <div class="sponsor-desc">Soutenu par le Laboratoire des Sciences Appliquées et Technologies Émergentes (LSATE).</div>
+                    </div>
+                </div>
+
+                <!-- Springer -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="https://icaim25.sciencesconf.org/data/sponsors/Capture_d_ecran_2025_05_27_a_22.43.44.png" alt="Springer">
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">Springer</div>
+                        <div class="sponsor-desc">Un volume dédié aux actes de la conférence sera publié dans la collection Mathematics & Statistics de Springer.</div>
+                    </div>
+                </div>
+
+                <!-- USMBA -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <a href="https://www.usmba.ac.ma/~usmba2/mot-du-president/" target="_blank">
+                            <img src="https://icaim25.sciencesconf.org/data/sponsors/Capture_d_e_cran_2025_04_11_a_11.33.56.png" alt="Université Sidi Mohamed Ben Abdellah">
+                        </a>
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">
+                            <a href="https://www.usmba.ac.ma/~usmba2/mot-du-president/" target="_blank">Université Sidi Mohamed Ben Abdellah</a>
+                        </div>
+                        <div class="sponsor-desc">L'Université Sidi Mohamed Ben Abdellah de Fès est un établissement public à but non lucratif d'enseignement supérieur et de recherche scientifique, fondé le 17 octobre 1975 à Fès, Maroc.</div>
+                    </div>
+                </div>
+
+                <!-- ENSAF -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <a href="https://ensaf.ac.ma/" target="_blank">
+                            <img src="https://icaim25.sciencesconf.org/data/sponsors/Capture_d_e_cran_2025_04_02_a_09.52.21.png" alt="ENSAF">
+                        </a>
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">
+                            <a href="https://ensaf.ac.ma/" target="_blank">ENSA Fès (ENSAF)</a>
+                        </div>
+                        <div class="sponsor-desc">L'École Nationale des Sciences Appliquées de Fès est une école d'ingénieurs publique faisant partie du réseau des ENSA du Maroc, fondée en 2005.</div>
+                    </div>
+                </div>
+
+                <!-- CNRST -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <a href="https://www.cnrst.ma/fr/" target="_blank">
+                            <img src="https://icaim25.sciencesconf.org/data/sponsors/Capture_d_e_cran_2025_04_10_a_10.31.53.png" alt="CNRST">
+                        </a>
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">
+                            <a href="https://www.cnrst.ma/fr/" target="_blank">CNRST</a>
+                        </div>
+                        <div class="sponsor-desc">Opérateur national marocain pour la promotion, le développement et la valorisation de la recherche scientifique et technique.</div>
+                    </div>
+                </div>
+
+                <!-- GASUP -->
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <a href="https://gasup.ma/" target="_blank">
+                            <img src="https://gasup.ma/" target="_blank">
+                            <img src="https://icaim25.sciencesconf.org/data/sponsors/Capture_d_e_cran_2025_04_10_a_10.23.26.png" alt="GASUP">
+                        </a>
+                    </div>
+                    <div class="sponsor-info">
+                        <div class="sponsor-name">
+                            <a href="https://gasup.ma/" target="_blank">GASUP</a>
+                        </div>
+                        <div class="sponsor-desc">Créé en 1988 au sein de la MCMA, le Groupement d'Assurance des Enseignants du Haut s'engage pour le développement de la protection sociale des enseignants du supérieur.</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>© 2026 ICIASI - International Conference on Artificial Intelligence and Industrial Systems.</p>
+        <p style="margin-top: 0.3rem; font-size: 0.75rem;">École Nationale des Sciences Appliquées | Contact: iciasi2026@gmail.com</p>
+    </footer>
+
+</body>
+</html>
