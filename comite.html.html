@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICIASI 2026 - International Conference on Intelligent Automation and Industrial Systems</title>
+    <style>
+        /* PALETTE DE COULEURS ET STYLE IDENTIQUE AU MODÈLE */
+        :root {
+            --primary: #0f172a;       /* Bleu nuit profond */
+            --accent: #1e40af;        /* Bleu académique */
+            --highlight: #2563eb;     /* Bleu vif */
+            --bg-body: #f8fafc;       /* Gris très clair */
+            --bg-card: #ffffff;       /* Blanc */
+            --text-main: #334155;     /* Anthracite */
+            --text-muted: #64748b;    /* Gris moyen */
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HEADER & ENTÊTE */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        /* MENU LATÉRAL DE NAVIGATION */
+        nav {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            height: fit-content;
+        }
+
+        nav h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            display: block;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #eff6ff;
+            color: var(--highlight);
+            transform: translateX(3px);
+        }
+
+        .support-box {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .support-box a {
+            color: var(--highlight);
+            word-break: break-all;
+            font-size: 0.85rem;
+        }
+
+        /* CONTENU PRINCIPAL */
+        main {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        h2.title-block {
+            color: var(--primary);
+            font-size: 1.4rem;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* GRILLE DES THÉMATIQUES */
+        .grid-themes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .theme-card {
+            background: #f1f5f9;
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--highlight);
+        }
+
+        .theme-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* BOÎTE D'APPEL À LA SOUMISSION */
+        .cta-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--highlight);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 1.5rem 1rem;
+            }
+            .header-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <div class="header-title">ICIASI 2026</div>
+        <div class="header-subtitle">International Conference on Artificial Intelligence and Industrial Systems</div>
+        <div class="header-badge">📅 24 - 25 Décembre 2026 | 📍 École Nationale des Sciences Appliquées</div>
+    </header>
+
+    <div class="container">
+
+        <!-- MENU NAVIGATION -->
+        <nav>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Comité d'Honneur</a></li>
+                <li><a href="#">Comité d'Organisation</a></li>
+                <li><a href="#">Comité Scientifique</a></li>
+                <li><a href="#">Sponsors & Partenaires</a></li>
+                <li><a href="#">Thèmes & Axes</a></li>
+                <li><a href="#">Conférenciers Invités</a></li>
+                <li><a href="#">Dates Importantes</a></li>
+                <li><a href="#">Soumission d'Article</a></li>
+                <li><a href="#">Publications & Actes</a></li>
+                <li><a href="#">Frais d'Inscription</a></li>
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Lieu de la Conférence</a></li>
+                <li><a href="#">Programme</a></li>
+            </ul>
+
+            <div class="support-box">
+                <h3>Support & Contact</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Pour toute information :</p>
+                <a href="mailto:iciasi2026@gmail.com">iciasi2026@gmail.com</a>
+            </div>
+        </nav>
+
+        <!-- CONTENU ACCUEIL -->
+        <main>
+            <section class="content-block">
+                <h2 class="title-block">Bienvenue</h2>
+                <p>
+                    Bienvenue sur le site officiel de l'<strong>International Conference on Artificial Intelligence and Industrial Systems (ICIASI 2026)</strong>. 
+                    La conférence se déroulera du <strong>24 au 25 décembre 2026</strong> à l'<strong>École Nationale des Sciences Appliquées</strong>.
+                </p>
+            </section>
+
+            <section class="content-block">
+                <h2 class="title-block">Objectif de la Conférence</h2>
+                <p>
+                    L'objectif de la conférence **ICIASI 2026** est de réunir des enseignants-chercheurs, des doctorants, des experts industriels et des scientifiques du monde entier pour échanger sur les avancées théoriques et appliquées à l'intersection de l'<strong>Intelligence Artificielle (IA)</strong> et des <strong>Systèmes Industriels</strong>.
+                </p>
+                <p>
+                    Cet événement international constitue une plateforme unique pour discuter des méthodologies émergentes, des technologies intelligentes (Industrie 4.0 & 5.0) et de leur déploiement pratique pour résoudre les défis complexes des environnements industriels modernes.
+                </p>
+                <p>
+                    Le programme comprendra des conférences plénières par des chercheurs renommés, des sessions orales, des présentations de posters ainsi que des tables rondes favorisant la collaboration académique et industrielle.
+                </p>
+            </section>
+
+            <section class="content-block">
+                <h2 class="title-block">Axes Thématiques</h2>
+                <div class="grid-themes">
+                    <div class="theme-card">
+                        <h4>AI-Driven Predictive Maintenance</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Diagnostic, détection précoce des pannes et estimation du RUL par Machine/Deep Learning.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Digital Twins & Automation</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Jumeaux numériques, modélisation temps réel et contrôle intelligent des procédés.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Industrial Computer Vision</h4>
+                        <p style="font-size: 0.85rem; margin:0;">Contrôle qualité automatisé, inspection par vision artificielle et cobotique.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Industrial Cyber-Physical Systems</h4>
+                        <p style="font-size: 0.85rem; margin:0;">IoT industriel, cybersécurité des systèmes OT/SCADA et efficacité énergétique.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cta-box">
+                <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Appel à Communications ICIASI 2026</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 0;">Soumettez vos résumés et articles originaux pour participer à cette édition.</p>
+                <a href="mailto:iciasi2026@gmail.com" class="cta-button">Soumettre un Article</a>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>© 2026 ICIASI - International Conference on Artificial Intelligence and Industrial Systems.</p>
+        <p style="margin-top: 0.3rem; font-size: 0.75rem;">École Nationale des Sciences Appliquées | Contact: iciasi2026@gmail.com</p>
+    </footer>
+
+</body>
+</html>
