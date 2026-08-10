@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comité Scientifique - ICIASI 2026</title>
+    <style>
+        /* CHARTE GRAPHIQUE IDENTIQUE À INDEX.HTML */
+        :root {
+            --primary: #0f172a;       /* Bleu nuit profond */
+            --accent: #1e40af;        /* Bleu académique */
+            --highlight: #2563eb;     /* Bleu vif */
+            --bg-body: #f8fafc;       /* Gris très clair */
+            --bg-card: #ffffff;       /* Blanc */
+            --text-main: #334155;     /* Anthracite */
+            --text-muted: #64748b;    /* Gris moyen */
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            height: fit-content;
+        }
+
+        nav h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            display: block;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #eff6ff;
+            color: var(--highlight);
+            transform: translateX(3px);
+        }
+
+        .support-box {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .support-box a {
+            color: var(--highlight);
+            word-break: break-all;
+            font-size: 0.85rem;
+        }
+
+        /* CONTENU PRINCIPAL */
+        main {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        h2.title-block {
+            color: var(--primary);
+            font-size: 1.4rem;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* GRILLE DES MEMBRES DU COMITÉ */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .member-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--highlight);
+            border-radius: 6px;
+            padding: 1rem 1.2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .member-affiliation {
+            font-size: 0.85rem;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        .member-country {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 1.5rem 1rem;
+            }
+            .header-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <div class="header-title">ICIASI 2026</div>
+        <div class="header-subtitle">International Conference on Artificial Intelligence and Industrial Systems</div>
+        <div class="header-badge">📅 24 - 25 Décembre 2026 | 📍 École Nationale des Sciences Appliquées</div>
+    </header>
+
+    <div class="container">
+
+        <!-- MENU NAVIGATION -->
+        <nav>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#">Comité d'Honneur</a></li>
+                <li><a href="#">Comité d'Organisation</a></li>
+                <li><a href="comite_scientifique.html" class="active">Comité Scientifique</a></li>
+                <li><a href="#">Sponsors & Partenaires</a></li>
+                <li><a href="#">Thèmes & Axes</a></li>
+                <li><a href="#">Conférenciers Invités</a></li>
+                <li><a href="#">Dates Importantes</a></li>
+                <li><a href="#">Soumission d'Article</a></li>
+                <li><a href="#">Publications & Actes</a></li>
+                <li><a href="#">Frais d'Inscription</a></li>
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Lieu de la Conférence</a></li>
+                <li><a href="#">Programme</a></li>
+            </ul>
+
+            <div class="support-box">
+                <h3>Support & Contact</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Pour toute information :</p>
+                <a href="mailto:iciasi2026@gmail.com">iciasi2026@gmail.com</a>
+            </div>
+        </nav>
+
+        <!-- CONTENU -->
+        <main>
+            <h2 class="title-block">Comité Scientifique</h2>
+            <p style="margin-bottom: 1.5rem;">Les membres du comité scientifique international de la conférence ICIASI 2026 :</p>
+
+            <div class="committee-grid">
+                <div class="member-card">
+                    <div class="member-name">Pr. Hassan Aaya</div>
+                    <div class="member-affiliation">UIC-Casablanca</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Ahmed Aberqi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Zakariae Abbad</div>
+                    <div class="member-affiliation">ENSIAS-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Rajae Aboulaich</div>
+                    <div class="member-affiliation">EMI-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Wilfried Yves Hamilton Adoni</div>
+                    <div class="member-affiliation">CASUS, Helmholtz-Zentrum Dresden</div>
+                    <div class="member-country">Allemagne</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abderrahmane Ait Aadi</div>
+                    <div class="member-affiliation">ENS-Meknès, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohamed Ait Ichou</div>
+                    <div class="member-affiliation">ESEF-Agadir, UIZ</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Youssef Akdim</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Elhoussine Azroul</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Adnane Azzouzi</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Nuno R.O. Bastos</div>
+                    <div class="member-affiliation">École Polytechnique de Viseu</div>
+                    <div class="member-country">Portugal</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Khalil Benhaddouch</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Insaf Bellamine</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Jaouad Bennouna</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Omar Benslimane</div>
+                    <div class="member-affiliation">EST-Salé, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Ismail Berrada</div>
+                    <div class="member-affiliation">UM6P-Benguerir</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Martin Bohner</div>
+                    <div class="member-affiliation">Missouri S&T</div>
+                    <div class="member-country">États-Unis</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abdelhak Boulaalam</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hamid Bourray</div>
+                    <div class="member-affiliation">FSM-Meknès, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Meryem Cherkaoui Semmouni</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Houssam Chrayteh</div>
+                    <div class="member-affiliation">Université Paris Panthéon-Assas</div>
+                    <div class="member-country">France</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Cosme Duque</div>
+                    <div class="member-affiliation">Université des Andes</div>
+                    <div class="member-country">Venezuela</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Nabil El Akkad</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abdessamad El Alami</div>
+                    <div class="member-affiliation">EST-Meknès, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Fatima Zahrae El Alaoui</div>
+                    <div class="member-affiliation">FSM-Meknès, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Oussama El Barrimi</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Safae El Haj Ben Ali</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abella El Kabouss</div>
+                    <div class="member-affiliation">FEG-Guelmim, UIZ</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Jaafar El Karkri</div>
+                    <div class="member-affiliation">EMI-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Meryem Ellekhlifi</div>
+                    <div class="member-affiliation">ENSAM-Meknès, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mhamed El Massoudi</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mounir Mekkour</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Karim El Moutaouakil</div>
+                    <div class="member-affiliation">FP-Taza, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Dr. Ghali Naami</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Saad Ezzini</div>
+                    <div class="member-affiliation">KFUPM</div>
+                    <div class="member-country">Arabie Saoudite</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abdellatif Ezzouhairi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Christian Gentner</div>
+                    <div class="member-affiliation">Centre Aérospatial Allemand (DLR)</div>
+                    <div class="member-country">Allemagne</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Khalid Haddouch</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Adil Jeghal</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Amine Jerroudi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Dr. Aicha Karite</div>
+                    <div class="member-affiliation">Centre Aérospatial Allemand (DLR)</div>
+                    <div class="member-country">Allemagne</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Adil Kenzi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Adil Khazari</div>
+                    <div class="member-affiliation">ENCG-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Loubna Laaouina</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohamed Lazaar</div>
+                    <div class="member-affiliation">ENSIAS-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hugo Leiva</div>
+                    <div class="member-affiliation">Yachay Tech</div>
+                    <div class="member-country">Équateur</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Natalia Martins</div>
+                    <div class="member-affiliation">Université d'Aveiro</div>
+                    <div class="member-country">Portugal</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Zakaria Mazgouri</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Imadeddine Mountasser</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hanae Moussaoui</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Touria Karite</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Saad Moutahhir</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohamed Ouahi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Rachid Ouifki</div>
+                    <div class="member-affiliation">Université North-West</div>
+                    <div class="member-country">Afrique du Sud</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Maria Alessandra Ragusa</div>
+                    <div class="member-affiliation">Università di Catania</div>
+                    <div class="member-country">Italie</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Dusan Repovs</div>
+                    <div class="member-affiliation">Université de Ljubljana</div>
+                    <div class="member-country">Slovénie</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohammed Rziza</div>
+                    <div class="member-affiliation">FS-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Jawad Salhi</div>
+                    <div class="member-affiliation">FST-Errachidia, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Adnane Saoud</div>
+                    <div class="member-affiliation">UM6P-Benguerir</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abdalla Swikir</div>
+                    <div class="member-affiliation">TUM / MBZUAI</div>
+                    <div class="member-country">Allemagne / Émirats Arabes Unis</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Cristiana Silva</div>
+                    <div class="member-affiliation">ISTA, Université de Lisbonne</div>
+                    <div class="member-country">Portugal</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Robin Thompson</div>
+                    <div class="member-affiliation">Université d'Oxford</div>
+                    <div class="member-country">Royaume-Uni</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Delfim F. M. Torres</div>
+                    <div class="member-affiliation">Université d'Aveiro</div>
+                    <div class="member-country">Portugal</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Fadoua Yakine</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Amal Yalid</div>
+                    <div class="member-affiliation">FLSH Ben M'sik, UH2</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Ahmed Youssfi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. El Hassan Zerrik</div>
+                    <div class="member-affiliation">FSM-Meknès, UMI</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohamed El Hammoumi</div>
+                    <div class="member-affiliation">FP-Taza, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Chihab Yazough</div>
+                    <div class="member-affiliation">FP-Taza, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. El Mehdi Mellouli</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Abdelkader Bouajaja</div>
+                    <div class="member-affiliation">FSJES-Settat, UH1</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hicham Redwane</div>
+                    <div class="member-affiliation">FSJES-Settat, UH1</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Amal Aarab</div>
+                    <div class="member-affiliation">ESEF-Berrechid, UH1</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mounia Zaim</div>
+                    <div class="member-affiliation">EST-Salé, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Redouane Qesmi</div>
+                    <div class="member-affiliation">EST-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Radouane Yafia</div>
+                    <div class="member-affiliation">FS-Kénitra, UIT</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Zouhair Ibn Batouta</div>
+                    <div class="member-affiliation">FSBM, UH2</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Amine Dehbi</div>
+                    <div class="member-affiliation">EST-Dakhla, UIZ</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Omar Herouane</div>
+                    <div class="member-affiliation">FST-Settat, UH1</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohammed Es-sabry</div>
+                    <div class="member-affiliation">FS-Tétouan, UAE</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Fouzia Elazzaby</div>
+                    <div class="member-affiliation">FSBM, UH2</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hajar Sabiki</div>
+                    <div class="member-affiliation">ENCG-Béni Mellal, USMS</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hicham Moussa</div>
+                    <div class="member-affiliation">FST-Béni Mellal, USMS</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Said Ziani</div>
+                    <div class="member-affiliation">ENSAM-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Mohamed El Ghmary</div>
+                    <div class="member-affiliation">FSDM-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Tarik Chanyour</div>
+                    <div class="member-affiliation">FSAC, UH2</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Ali Ouacha</div>
+                    <div class="member-affiliation">FS-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Hassan Echoukairi</div>
+                    <div class="member-affiliation">FS-Rabat, UM5</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Pr. Lahbib Khrissi</div>
+                    <div class="member-affiliation">ENSA-Fès, USMBA</div>
+                    <div class="member-country">Maroc</div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>© 2026 ICIASI - International Conference on Artificial Intelligence and Industrial Systems.</p>
+        <p style="margin-top: 0.3rem; font-size: 0.75rem;">École Nationale des Sciences Appliquées | Contact: iciasi2026@gmail.com</p>
+    </footer>
+
+</body>
+</html>
