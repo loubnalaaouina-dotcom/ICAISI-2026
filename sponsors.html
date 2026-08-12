@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsors - ICIASI 2026</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #1e40af;
+            --highlight: #2563eb;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .header-subtitle { font-size: 1.2rem; color: #cbd5e1; font-style: italic; margin-bottom: 1.2rem; }
+        .header-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        nav {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            height: fit-content;
+        }
+
+        nav h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        nav ul { list-style: none; }
+        nav li { margin-bottom: 0.4rem; }
+        nav a { text-decoration: none; color: var(--text-main); font-weight: 500; display: block; padding: 0.6rem 0.8rem; border-radius: 6px; }
+        nav a:hover, nav a.active { background-color: #eff6ff; color: var(--highlight); }
+
+        main { background: var(--bg-card); border-radius: 8px; padding: 2.5rem; border: 1px solid var(--border); }
+
+        h2.section-title { color: var(--primary); font-size: 1.4rem; border-bottom: 3px solid var(--highlight); display: inline-block; padding-bottom: 0.3rem; margin-bottom: 1.5rem; }
+
+        .empty-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem; background: white; }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title">ICIASI 2026</div>
+        <div class="header-subtitle">International Conference on Artificial Intelligence and Industrial Systems</div>
+        <div class="header-badge">📅 24 - 25 Décembre 2026 &nbsp;|&nbsp; 📍 ENSA Fès, Maroc</div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="themes.html">Thèmes & Axes</a></li>
+                <li><a href="dates.html">Dates Importantes</a></li>
+                <li><a href="soumission.html">Soumission de résumé</a></li>
+                <li><a href="sponsors.html" class="active">Sponsors & Partenaires</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2 class="section-title">Sponsors & Partenaires</h2>
+            <div class="empty-placeholder">
+                La liste des sponsors et partenaires institutionnels sera affichée prochainement.
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 ICIASI - École Nationale des Sciences Appliquées de Fès</p>
+    </footer>
+
+</body>
+</html>
